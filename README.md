@@ -25,4 +25,7 @@ Para obtener las variables de entorno relacionadas con Google, se debe entrar al
 
 Luego, se debe crear un proyecto y habilitar las credenciales.
 
+## Referencias:
+Video explicativo: https://www.youtube.com/watch?v=24CdzVP__TU&ab_channel=LeiferMendez
 
+Documentación Passport: https://www.passportjs.org/tutorials/google/
