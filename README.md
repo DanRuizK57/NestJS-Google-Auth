@@ -18,8 +18,11 @@ $ npm run start:dev
 ```
 
 ## Variables de entorno
-#### **GOOGLE_CLIENT_ID:** ID del cliente de Google.
-#### **GOOGLE_CLIENT_SECRET:** Secreto del cliente de Google.
+**MONGO_URI:** Dirección de la base de datos MongoDB.
+
+**GOOGLE_CLIENT_ID:** ID del cliente de Google.
+
+**GOOGLE_CLIENT_SECRET:** Secreto del cliente de Google.
 
 Para obtener las variables de entorno relacionadas con Google, se debe entrar al siguiente link: https://console.cloud.google.com/
 

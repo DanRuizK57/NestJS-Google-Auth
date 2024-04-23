@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, UseGuards } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -8,8 +8,9 @@ export class AuthController {
 
   @Get("/google")
   @UseGuards(AuthGuard('google'))
-  async googleLogin(): Promise<any> {
-    return HttpStatus.OK;
+  async googleLogin(@Req() req): Promise<any> {
+    const { user } = req.user;
+    return this.authService.register(user);
   }
 
 }
