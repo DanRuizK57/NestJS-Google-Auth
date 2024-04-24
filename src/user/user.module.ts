@@ -3,6 +3,8 @@ import { UserService } from './user.service';
 import { UserController } from './user.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './schema/user.schema';
+import { GoogleStrategy } from 'src/auth/google.strategy';
+import { SessionSerializer } from 'src/auth/session.serializer';
 
 @Module({
   imports: [MongooseModule.forFeature([
@@ -12,6 +14,6 @@ import { User, UserSchema } from './schema/user.schema';
       }
     ])],
   controllers: [UserController],
-  providers: [UserService],
+  providers: [UserService, GoogleStrategy, SessionSerializer],
 })
 export class UserModule {}

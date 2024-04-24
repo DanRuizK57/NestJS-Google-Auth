@@ -11,7 +11,6 @@ export class AuthService {
   ) {}
 
   async register(user: RegisterAuthDto) {
-      
       let existingUser = await this.userModel.findOne({ email: user.email }).exec();
       if (!existingUser) {
         console.log("New user has been created: ", user);

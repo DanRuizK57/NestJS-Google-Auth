@@ -5,17 +5,20 @@ import { GoogleStrategy } from './google.strategy';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from 'src/user/schema/user.schema';
+import { SessionSerializer } from './session.serializer';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
-  imports: [ConfigModule.forRoot(),
+  imports: [
+    ConfigModule.forRoot(),
     MongooseModule.forFeature([
       {
         name: User.name,
         schema: UserSchema
       }
-    ])
+    ]),
   ],
   controllers: [AuthController],
-  providers: [AuthService, GoogleStrategy],
+  providers: [AuthService, GoogleStrategy, SessionSerializer],
 })
 export class AuthModule {}
