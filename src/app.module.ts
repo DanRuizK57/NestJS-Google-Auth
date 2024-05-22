@@ -6,6 +6,7 @@ import { AuthService } from './auth/auth.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/entities/user.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         password: process.env.POSTGRESQL_PASSWORD,
         database: process.env.POSTGRESQL_DB_NAME,
         // Ingresar entidades creadas
-        entities: [],
+        entities: [User],
         // No se debe usar en producción, se pueden perder datos.
         synchronize: true,
       })
