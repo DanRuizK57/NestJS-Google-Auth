@@ -7,6 +7,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
+import { UserService } from './user/user.service';
+import { Repository } from 'typeorm';
 
 @Module({
   imports: [
@@ -24,7 +26,7 @@ import { User } from './user/entities/user.entity';
         entities: [User],
         // No se debe usar en producción, se pueden perder datos.
         synchronize: true,
-      })
+    })
   ],
   controllers: [AppController],
   providers: [AppService, AuthService],
