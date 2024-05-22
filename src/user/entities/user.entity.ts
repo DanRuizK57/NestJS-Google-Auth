@@ -16,7 +16,7 @@ export class User {
     email: string;
 
     @Column({ type: 'text', nullable: true })
-    photo: string;
+    picture: string;
 
     @CreateDateColumn({ type: 'timestamp'})
     createdAt: Date;

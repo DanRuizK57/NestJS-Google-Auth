@@ -11,10 +11,14 @@ import { AuthGuard } from '@nestjs/passport';
 import { Response } from 'express';
 import { AuthService } from './auth.service';
 import { CheckTokenExpiryGuard } from './auth.guard';
+import { UserService } from 'src/user/user.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly userService: UserService
+  ) { }
 
   @Get('google')
   @UseGuards(AuthGuard('google'))
@@ -30,6 +34,8 @@ export class AuthController {
     res.cookie('refresh_token', googleRefreshToken, {
       httpOnly: true,
     });
+
+    this.userService.checkUserAreRegistered(req.user);
 
     res.redirect('http://localhost:3000/auth/profile');
   }

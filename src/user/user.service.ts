@@ -47,4 +47,17 @@ export class UserService {
 
     return await this.usersRepository.delete(userToRemove);
   }
+
+  async checkUserAreRegistered(createUserDto: CreateUserDto) {
+    const userFound = await this.findByEmail(createUserDto.email);
+    
+    const user = {
+      firstName: createUserDto.firstName,
+      lastName: createUserDto.lastName,
+      email: createUserDto.email,
+      picture: createUserDto.picture
+    }
+
+    if (!userFound) this.create(user);
+  }
 }
